@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CodingTest.Global.Models.OwnerViewModel>
+@{ Layout = null; }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dependency Injection</title>
+    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
+</head>
+<body class="m-1 p-1">
+    
+    <table class="table table-bordered table-sm table-striped">
+        <thead>
+            <tr>
+                <th>Owner's Gender</th>
+                <th>Cat</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model == null)
+            {
+                <tr><td colspan="3" class="text-center">No Model Data</td></tr>
+            }
+            else
+            {
+                @foreach (var customer in Model)
+                {
+                    <tr>
+                        <td>@customer.OwnerGender</td>
+                        
+
+                    <td>
+                        <ul>
+                          @foreach (var cat in customer.CatNames)
+                                 {
+                                     <li> @cat</li>
+                                 }
+                        </ul>
+                    </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</body>
+</html>
